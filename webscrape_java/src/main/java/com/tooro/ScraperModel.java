@@ -38,6 +38,6 @@ public class ScraperModel {
 	}
 
 	public String toString(){
-		return Protocol.https + "://" + domainName + path;
+		return protocol + "://" + domainName + path;
 	}
 }

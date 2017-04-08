@@ -15,7 +15,7 @@ import com.tooro.utils.DBUtil;
 import com.tooro.utils.ScraperUtil;
 
 public class WikiScraper {
-	static ScraperModel scraperModel = new ScraperModel(Protocol.https, "www.wikipedia.org", "",
+	public static ScraperModel scraperModel = new ScraperModel(Protocol.https, "www.wikipedia.org", "",
 			"/wiki/Java");
 	private static Map<String, String> foundLinks = new HashMap<String, String>();
 	
@@ -35,17 +35,17 @@ public class WikiScraper {
 		scraperModel.setPath("/wiki/Python");
 		String condition="#mw-content-text li:has(a[title=Pythonidae])";
 		Document doc = ScraperUtil.getDocument(scraperModel);
-		return doc.select(condition).first().text(); 
+		return doc.select(condition).first().text();
 	}
 
-	private static void scrapeContent(ScraperModel scraperModel) throws LinkNotFoundException{
+	public static String scrapeContent(ScraperModel scraperModel) throws LinkNotFoundException{
 		Document doc = ScraperUtil.getDocument(scraperModel);
 		String condition = "#mw-content-text p";
 		String text = doc.select(condition).first().text();
-		System.out.println(text);
+		return text;
 	}
 
-	private static void scrapeLinks(ScraperModel scraperModel) throws LinkNotFoundException{
+	public static void scrapeLinks(ScraperModel scraperModel) throws LinkNotFoundException{
 		Document doc = ScraperUtil.getDocument(scraperModel);
 		String condition = "#mw-content-text [href~=^/wiki/((?!:).)*$]";
 		Elements links = doc.select(condition);

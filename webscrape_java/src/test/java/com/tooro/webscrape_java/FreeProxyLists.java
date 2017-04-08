@@ -19,6 +19,7 @@ public class FreeProxyLists extends TestCase{
 		org.junit.runner.JUnitCore.main("tests.FreeProxyLists");
 	}
 	
+	/*
 	@Test
 	public void test() throws FailingHttpStatusCodeException, MalformedURLException, IOException{
 		WebClient webClient=new WebClient(BrowserVersion.FIREFOX_10);
@@ -32,4 +33,5 @@ public class FreeProxyLists extends TestCase{
 		webClient.closeAllWindows();
 		assertTrue(ipAddress.matches("(?:[0-9]{1,3}.){3}[0-9]{1,3}"));
 	}
+	*/
 }
